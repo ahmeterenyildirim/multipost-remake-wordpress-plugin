@@ -1,6 +1,6 @@
 This plugin is created for a (private repository) project of mine. I thought the problem was annoying, so I open-sourced it incase anyone encounters the same problem. It's just a quick fix so don't expect anything professional. You can use it however you want.
 
-When using wordpress REST API, I encountered a problem where you can not add custom fields value (post meta) to the post directly. Forums suggest that you should 'register' them but that's not always possible since you may not be knowing what fields are avaible. However it is possible with a small plugin that 'extends' the REST API.
+When using wordpress REST API, I encountered a problem where you can not add custom fields value (post meta) to the post directly. Forums suggest that you should 'register' them but that's not always possible since you may not be knowing what fields are avaible. However it is possible with a small plugin that 'extends' the REST API. Just upload the plugin zip file to your site and activate the plugin (or addon idk what's it called.).
 The plugin offers 3 new endpoints to the REST API.
 
 yoursite.com/wp-json/multipost/v1/version/ [GET] [NO AUTH]: This returns version for the plugin, used for internal validations.
