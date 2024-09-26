@@ -7,14 +7,15 @@ When using wordpress REST API, I encountered a problem where you can not add cus
 Just upload the plugin zip file to your site and activate the plugin (or addon idk what's it called.).
 This plugin offers 3 new endpoints to the REST API.
 
-# Endpoint 1
+### Endpoint 1
 yoursite.com/wp-json/multipost/v1/version/ [GET] [NO AUTH]: This returns version for the plugin, used for internal validations.
 
-# Endpoint 2
+### Endpoint 2
 yoursite.com/wp-json/multipost/v1/custom_fields/ [GET] [NO AUTH]: This returns an array for all avaible custom fields.
 
-# Endpoint 3
+### Endpoint 3
 yoursite.com/wp-json/multipost/v1/set_custom_fields [POST] [AUTH]: This adds the given meta data (custom fields) to given post id. Returns true no matter what.
 Arguments:
 > id: Post id you want to add
+
 > fields: An array, containing 'custom field name' & 'the value' key and value pairs.
