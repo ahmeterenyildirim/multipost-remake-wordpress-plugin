@@ -3,7 +3,7 @@
 * Plugin Name:       Multipost Wordpress Eklentisi
 * Plugin URI:        https://multipost.com.tr
 * Description:       Multipost sistemi için wordpress işlemlerini yapan bir eklenti.
-* Version:           0.1.0
+* Version:           0.1.1
 * Author:            Ahmet Eren YILDIRIM
 * Author URI:        https://ahmeterenyildirim.com.tr/
 * Update URI:        https://multipost.com.tr/wordpres-plugin/
@@ -14,7 +14,7 @@
  * Returns the version of this plugin.
  */
 function get_multipost_plugin_version($request) {
-    return rest_ensure_response( "0.1.0" );
+    return rest_ensure_response( "0.1.1" );
 }
 
 add_action( 'rest_api_init', 
@@ -80,6 +80,37 @@ add_action( 'rest_api_init',
             [
                 'methods' => 'POST',
                 'callback' => 'set_custom_fields_for_post',
+            ]
+        );
+    }
+);
+
+
+/**
+ * Set FIFU image
+ */
+function set_fifu_image($request) {
+    if ( ! is_user_logged_in() ) {
+        return new WP_Error( 'rest_not_logged_in', 'You are not logged in.', array( 'status' => 401 ) );
+    }
+
+    $id = $request->get_param("id");
+    $url = $request->get_param("url");
+
+    if(function_exists('fifu_dev_set_image')){
+        fifu_dev_set_image($id, $url);
+        return rest_ensure_response( true );
+    }
+
+    return rest_ensure_response( false );
+
+}
+add_action( 'rest_api_init', 
+    function () {
+        register_rest_route('multipost/v1', '/set_fifu_image', 
+            [
+                'methods' => 'POST',
+                'callback' => 'set_fifu_image',
             ]
         );
     }

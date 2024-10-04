@@ -19,3 +19,10 @@ Arguments:
 > id: Post id you want to add
 
 > fields: An array, containing 'custom field name' & 'the value' key and value pairs.
+
+### Endpoint 4
+yoursite.com/wp-json/multipost/v1/set_fifu_image [POST] [AUTH]: (UNRELATED TO THE PROBLEM) With this endpoint, you can utilize FIFU extension's 'set featured image from url' feature. Returns true if succeeded, false if the FIFU's function does not exist.
+Arguments:
+> id: Post id you want to add
+
+> url: The image url.
